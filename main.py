@@ -18,11 +18,19 @@ TARGET = os.path.join(TARGET_DIR, "entry.png")
 
 JPEG_START = b"\xff\xd8"
 JPEG_END = b"\xff\xd9"
+MAX_BYTES = 1024 * 1024  # the bounty allows at most 1 MiB
 
 
 def main():
+    if not os.path.isfile(SOURCE):
+        print(f"missing {SOURCE}", file=sys.stderr)
+        return 1
     with open(SOURCE, "rb") as fh:
         data = fh.read()
+    if len(data) > MAX_BYTES:
+        print(f"news.jpg is {len(data)} bytes, over the 1 MiB limit",
+              file=sys.stderr)
+        return 1
     if not data.startswith(JPEG_START) or not data.endswith(JPEG_END):
         print("news.jpg is not a complete JPEG file", file=sys.stderr)
         return 1

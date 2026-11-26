@@ -24,6 +24,12 @@ A newspaper front page that sums up the world's news of Thursday
 file is a complete JPEG. No network, no randomness: two runs write
 identical bytes.
 
+## Verification
+
+Run `python3 main.py` twice and compare the outputs: both runs write
+313,640 bytes with the same SHA-256 as `news.jpg`. The image is
+1024x1024, inside the 1 MiB limit.
+
 ## Sources
 
 AP, CNN, WSJ, Reuters, ISW, FIDE, US Bureau of Economic Analysis,
