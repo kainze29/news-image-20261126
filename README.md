@@ -27,7 +27,7 @@ identical bytes.
 ## Verification
 
 Run `python3 main.py` twice and compare the outputs: both runs write
-313,640 bytes with the same SHA-256 as `news.jpg`. The image is
+315,979 bytes with the same SHA-256 as `news.jpg`. The image is
 1024x1024, inside the 1 MiB limit.
 
 ## Sources
